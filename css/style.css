@@ -1,0 +1,281 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575; 
+    --grisClaro: #dfe9f3;   
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    /* scroll-snap-type: y mandatory;  ESTO ES PARA ACOMODAR EL SCROLL*/ 
+    }
+
+*, *:before, *:after {
+        box-sizing: inherit;
+      } /* Esto arregla el box size - Paul Irish*/
+
+body {
+    font-size: 16px; /* 1rem = 10px --> USAR ESTO SIEMPRE*/
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 50%);
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(148,148,148,1);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(148,148,148,1);
+    box-shadow: 0px 5px 15px 0px rgba(148,148,148,1);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+
+
+/* UTILIDADES */ 
+
+.w-100 {
+    width: 100%;
+}
+
+.flex {
+    display: flex;    
+}
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+
+
+h1 {
+    font-size: 1.4rem;
+}
+h1 span {
+    font-size: 1.4rem;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+h2 {
+    font-size: 2.4rem;
+}
+h3 {
+    color: var(--secundario);
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+.titulo {
+    text-align: center;  
+    font-size: 3.8rem; 
+}
+
+.titulo span {
+        font-size: 2rem;
+}
+
+.contenedor {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.nav-background {
+    background-color: var(--secundario);
+}
+
+.navegacion-ppal {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navegacion-ppal a {
+    padding: 1rem 2rem;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;   
+    background-size: cover;
+}
+
+.navegacion-ppal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+@media (min-width: 768px) {
+    .navegacion-ppal {
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+}
+
+@media (min-width: 1140px) {
+    
+}
+
+.hero {
+   
+    height: 450px;
+    background-image: url(../img/hero.jpg);
+    margin-bottom: 2rem;
+    position: relative;
+    margin-bottom: 2rem;
+
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgb(0 0 0 / 70%); /** Primer opción - el 70% es la transparencia **/
+    background-color: rgba(0, 0, 0, .7);   
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /** USAR siempre estas 4 líneas para centrar en todas las direcciones **/
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    margin-top: .5rem;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    border:none;
+}
+.boton:hover {
+    cursor: pointer; /* esto hace que el cursor se vuelva una mano cuando pasamos encima */ 
+}
+
+@media (min-width: 480px) {
+    .boton {
+        width: auto;
+    }
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem;
+    
+    }
+}
+ /* ESTO SIRVE PARA ACOMODAR EL SCROLL A LAS SECCIONES 
+.servicio, .navegacion-ppal, .formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*/ 
+
+.servicio {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+.servicio p{
+    line-height: 1.5;
+
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%);  /* utiliza un valor u otro s/ pantalla - utiliza el valor más pequeño*/
+    margin: 0 auto; /* esto solo lo utilizo cuando tengo un form y cuyo padre no es un DISPLAY FLEX*/
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    color: var(--primario);
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+        
+    }
+}
+
+.campo:nth-child(3){ /* ESTO ELIJE LAS CLASES QUE SE LLAMAN IGUAL POR EL N° */
+    grid-column: 1 / 3;
+}
+
+.campo:nth-child(4){ /* ESTO ELIJE LAS CLASES QUE SE LLAMAN IGUAL POR EL N° */
+    grid-column: 1 / 3;
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+
+}
+
+.campo textarea {
+    height: 17rem;
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+.enviar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer {
+    text-align: center;
+}
