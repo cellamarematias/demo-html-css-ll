@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="caja" type="text">
+
+    <button onclick="validar()"></button>
+
+
+
+
+
+
+</body>
+
+
+<script>
+    function validar() {
+
+        var A = document.pp.caja.value; // leer el contenido de una caja de textos
+  if(A.length<8){alert("Es menor a 8 caracteres");return 0;}
+  else{ 
+      if(isNaN(A)){alert("el texto 'A' no es un numero");return 0;}
+  }
+
+  return 1;
+
+
+    }
+
+
+
+
+
+</script>
+</html>
