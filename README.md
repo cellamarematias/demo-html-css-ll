@@ -1,4 +1,4 @@
-<h3 align="center">This is a project with HTML5 and CSS3</h3>
+<h3 align="center">This is a simple project with HTML5 and CSS3</h3>
 
 - 👨‍💻 You can see it here: [https://github.com/cellamarematias/demo-html-css-ll/tree/master](https://cellamarematias.github.io/demo-html-css-ll/)
 
