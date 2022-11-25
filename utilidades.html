@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Utilidades</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-tools.svg/1024px-Circle-icons-tools.svg.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <style>
+        .ball {
+            animation: bounce 0.5s;
+            animation-direction: alternate;
+            animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translate3d(0, 0, 0);
+            }
+
+            to {
+                transform: translate3d(0, 30px, 0);
+            }
+        }
+
+        /* Prefix Support */
+
+        ball {
+            -webkit-animation-name: bounce;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+            -webkit-animation-iteration-count: 0;
+        }
+
+        @-webkit-keyframes bounce {
+            from {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+
+            to {
+                -webkit-transform: translate3d(0, 200px, 0);
+                transform: translate3d(0, 200px, 0);
+            }
+        }
+    </style>
+
+
+</head>
+
+<nav class="nav nav-pills flex-column flex-sm-row mt-2 fixed-top">
+    <a class="flex-sm-fill text-sm-center nav-link" href="#editableDiv">Utilidades</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="#buscador">Buscador</a>
+</nav>
+
+
+<body class="container" id='editableDiv' contenteditable='false'>
+    <div class="row vh-100  container justify-content-center align-items-center">
+        <div class="row">
+            <div class="card m-2" style="width: 15rem; padding-top: 4rem;">
+                <img class="card-img mt-4"
+                    src="https://www.gestionyseguros.com/wp-content/uploads/2020/04/pago-facil-y-rapipago.png"
+                    alt="Rapipago img">
+                <div class="card-body">
+                </div>
+                <button type="button" class="btn btn-primary btn-block mb-2 mt-0" onclick="rp()">memo</button>
+            </div>
+
+            <div class="card m-2" style="width: 15rem;">
+                <img class="card-img-top mt-4"
+                    src="https://dypri.com.ar/wp-content/uploads/2020/06/Transferencia-bancaria.png"
+                    alt="transferencia img">
+                <div class="card-body">
+                </div>
+                <button type="button" class="btn btn-primary btn-block mb-2 mt-0"
+                    onclick="transferencia()">memo</button>
+            </div>
+
+            <div class="card m-2" style="width: 15rem;">
+                <img class="card-img-top mx-auto mt-4"
+                    src="https://www.libertyexpress.com/argentina/wp-content/uploads/2020/10/021-map-point.svg"
+                    alt="sucursal img">
+                <div class="card-body">
+                </div>
+                <button type="button" class="btn btn-primary btn-block mb-2 mt-0" onclick="sucursal()">memo</button>
+            </div>
+
+
+            <div class="card m-2" style="width: 15rem;">
+                <img class="card-img-top mx-auto mt-4"
+                    src="https://tuquejasuma.com/media/images/entity576_square_Cb0F10X.png" alt="mercado pago img">
+                <div class="card-body">
+                </div>
+                <button type="button" class="btn btn-primary btn-block mb-2 mt-0" onclick="mp()">memo</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<body>
+    <div class="d-flex justify-content-center align-items-center flex-column mt-8" style="margin-top: 7rem;"
+        id='buscador'>
+        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" class="pb-2">
+        <input id="search" onkeydown="myFunction()" onchange="myFunction()"
+            class="rounded-pill border border-white shadow p-2 mb-5 bg-white" style="width: 600px; outline: none"
+            placeholder="   Buscar gestor o empresa..."></input>
+        <img onclick="" style="height: 230px; cursor: pointer;" class="w-25 border-0" id="img" alt=""
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC">
+    </div>
+</body>
+
+
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4">
+        <a href="https://github.com/cellamarematias" target="_blank" onClick="" id='git'>
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" style="height: 29px; width: auto;">
+        </a>
+				<a href="/timmer.html" target="_blank" onClick="" id='git'>
+					<img src="clock.png" style="height: 29px; width: auto;">
+			</a>
+
+    </footer>
+</div>
+
+<script>
+
+    // script para el bounce de git
+
+    function addClass() {
+        var element = document.getElementById("git");
+        element.classList.add("ball");
+    }
+
+    let data = [
+        {
+            empresa: "fravega",
+            function: "fravega()",
+            gestores: "Agustin Giorgio, Cindy Van de Ploeg, Celeste Vega, Gisel Gonzalez, Malen Cesco, Candela Candia, Yamila Minetti, Facundo Borquez, Tomas Riva",
+            telefono: "0810-555-9090",
+            url: "https://www.fravega.com/static/logo-fravega@3x.png"
+        },
+
+        {
+            empresa: "cfn credito argentino",
+            function: "cfn()",
+            gestores: "Daniela Marozzi, Fausto Graneros, Micaela Gil, Javier Macri, German Pinazo, Santiago Lopez, Giuliana Guagliano, nicolas martinez",
+            telefono: "0810-555-9090",
+            url: "https://d31dn7nfpuwjnm.cloudfront.net/images/valoraciones/0036/5413/Cr%C3%A9dito_Argentino_requisitos_para_pr%C3%A9stamos.png?1581024659"
+        },
+        {
+            empresa: "santa fe",
+            function: "bsf()",
+            gestores: "Laura de Juana, Mercedes Jaime, Leonela Vila, Joaquín Rebichini, Alejandro Giorgio, Mariana Vera, Yamila Blando, María Ponce, Natalia Roldán, Marianela Cocco",
+            telefono: "0810-555-9090",
+            url: "https://upload.wikimedia.org/wikipedia/commons/d/d5/BancoSantafe-logo.jpg"
+        },
+        {
+            empresa: "hipotecario",
+            function: "hipotecario()",
+            gestores: "Angeles Martinich, Denise Spero, Ana Clara Bruno, Lia Tonzar, Naibi Gattari",
+            telefono: "0810-555-9090",
+            url: "https://www.telefonoargentina.com/wp-content/uploads/2019/05/banco-hipotecario-argentina-telefono.jpg"
+        },
+        {
+            empresa: "hsbc",
+            function: "hsbc()",
+            gestores: "Fabiana Rojas, Ayelen Lattari, Jaquelina Martínez, Cristhian Ruiz, Alexia Rovere, Luisina Pullaro",
+            telefono: "0810-555-9090",
+            url: "https://www.hsbc.com.ar/etc.clientlibs/dpws/clientlibs-public/clientlib-site/resources/social/logo/Square-1200x1200px.jpg"
+        },
+        {
+            empresa: "la anonima",
+            function: "tla()",
+            gestores: "Rocio Pereyra, Alfonso Moschen, Ayelen Pizzi, Mayra Fabani, Yamila Tome, Romina Figueredo (BO), Eugenia Zorzi",
+            telefono: "0810-555-9090",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/La_anonima_logo.svg/1200px-La_anonima_logo.svg.png"
+        },
+        {
+            empresa: "banco del sol",
+            function: "sol()",
+            gestores: "Franco Landajuela, Julieta Zarate",
+            telefono: "0810-555-9090",
+            url: "https://pbs.twimg.com/profile_images/1493252157486903302/w_fwe6MW_400x400.jpg"
+        },
+        {
+            empresa: "credicoop",
+            function: "credicoop()",
+            gestores: "Magalí Fidalgo, Maria Jankovic, Stefanía Feres, Carolina Krepelka, Guillermina Reynoso, Alejandro Vallarella, Guillermina Reynoso, Gisel Gonzalez , Dana Trobbiani, Rocío Sirvan, Romina Giordano, Malvina Galloso",
+            telefono: "0810-555-9090",
+            url: "https://www.fontana-d.com/wp-content/uploads/2021/11/Credcoop-Marca.jpg"
+        },
+        {
+            empresa: "pampa",
+            function: "pampa()",
+            gestores: "Ramiro Pérez, Victoria Saire, Fabiana Rojas, Verónica Fernández, Romina Figueredo",
+            telefono: "0810-555-9090",
+            url: "https://www.adeba.com.ar/wp-content/uploads/2018/01/banco_de_la_pampa.png"
+        },
+        {
+            empresa: "efectivo si cfa",
+            function: "cfa()",
+            gestores: "Lucía Ferrarini, lucia ferrarini, lucia ressiga, Lucía Ressiga, Gonzalo Azara, Alejandro Vallarella, Marina Gomez, Stefania Feres, Rodolfo Jesús Murúa, Laura Alessandroni, Malen Cesco, Celine Cucchiara, Angeles Martinich, Daniel Rossi, Romina Giordano,  Malvina Galloso, Leonela Vila, Matias Marsilli",
+            telefono: "0810-555-9090",
+            url: "https://www.efectivosi.com.ar/assets/site/img/share/facebook_share_img.png"
+        },
+        {
+            empresa: "comafi",
+            function: "comafi()",
+            gestores: "Uriel Ortiz, Victoria Ruiz, Rocío Sirvan",
+            telefono: "0810-555-9090",
+            url: "https://telefonosparareclamos.com/wp-content/uploads/2020/11/banco-comafi.png"
+        },
+        {
+            empresa: "corefin carsa",
+            function: "corefin()",
+            gestores: "Guadalupe Molina, Leonela Vila, Ángeles Martinich, Romina Figueredo, Eugenia Zorzi",
+            telefono: "0810-555-9090",
+            url: "https://scontent.faep22-1.fna.fbcdn.net/v/t1.6435-9/71181391_2074442615988541_9216791464057503744_n.png?_nc_cat=100&ccb=1-7&_nc_sid=e3f864&_nc_ohc=NRMJa3NymkwAX9dLSY0&_nc_ht=scontent.faep22-1.fna&oh=00_AT9W9c2F8z1S3NT3jFvR8hQNLYlB6MZG5vwAa6AnRl2vsA&oe=635A0331"
+        },
+        {
+            empresa: "musimundo megatone musi",
+            function: "musimundo()",
+            gestores: "Dana Trobbiani, Francisco Rivadera, Julieta Villaescusa, Catalina Miloslavich, Malen Cesco, Magali Zatta, Daniela Marozzi, Silvina Ocampo, Agustín Giorgio, Emanuel Gonzalez, Maria Pia Rivera",
+            telefono: "0810-555-9090",
+            url: "https://tuquejasuma.com/media/images/entity632_square_y7IsVGy.png"
+        },
+        {
+            empresa: "naranja",
+            function: "naranja()",
+            gestores: "Verónica Fernández, Natalia Roldan, María Jankovic, Marianela Cocco, Alejandro Vallarella (BO), Carolina Krepelka, Cristhian Ruiz, Malvina Galloso, Daniela Marozzi, Denise Spero, Micaela Gil",
+            telefono: "0810-555-9090",
+            url: "https://www.ces-sanfco.com.ar/assets/archivos/recortadas/a_ea2b8a2d66.png"
+        },
+        {
+            empresa: "municipal muni",
+            function: "municipal()",
+            gestores: "Facundo Policani, Alejandro Vallarela, elías Zeballos",
+            telefono: "0810-555-9090",
+            url: "https://www.mercadodelpatio.gob.ar/resources/produccion/contenidos/top/medium/promociones/LOGOBANCOMUNICIPAL.png"
+        },
+        {
+            empresa: "san juan",
+            function: "sanJuan()",
+            gestores: "María Ponce, Mariana Rivera, Laura De Juana, Mercedes Jaime, Alejandro Giorgio, Yamila Blando, Verónica Fernández, Yamila Minetti",
+            telefono: "0810-555-9090",
+            url: "https://upload.wikimedia.org/wikipedia/commons/6/62/BancoSanJuan-logo.jpg"
+        },
+        {
+            empresa: "judicial cencosud",
+            function: "judicial()",
+            gestores: "sebastian picerni",
+            telefono: "0810-555-9090",
+            url: "https://i.pinimg.com/originals/e2/ca/e2/e2cae220ce222bac8180e0bfcaf5d6b3.png"
+        },
+    ]
+
+    function myFunction() {
+        var x = document.getElementById("search").value;
+
+        let resultado = data.find(element => {
+
+            let empresa = (element.empresa).toUpperCase();
+            let gestor = (element.gestores).toUpperCase();
+            let busqueda = x.toUpperCase();
+
+            if (empresa.includes(busqueda)) {
+                console.log(busqueda)
+                console.log("matchea empresa")
+                //
+                return element;
+            }
+
+            if (gestor.includes(busqueda)) {
+                console.log(busqueda)
+                console.log("matchea empresa")
+                //
+                return element;
+            }
+
+        });
+
+        //document.getElementById("demo").innerHTML = resultado;
+        console.log('este es el resultado x', x.length);
+        if (resultado === undefined) { document.getElementById("img").src = "https://c.tenor.com/9ud1r4sc-QQAAAAC/confused-john-travolta.gif"; }
+        document.getElementById("img").src = resultado.url;
+        document.getElementById("img").setAttribute("onClick", resultado.function);
+        if (x.length <= 1) { document.getElementById("img").src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"; }
+    };
+
+
+    // CLIENTES Y GESTORES
+
+    function bsf() {
+        swal({
+            title: "Nuevo Banco de Santa Fe",
+            text: "Supervisor: Lourde Greco (TM) \n Supervisor: Natalia Roldán (cartera comercial) (TT) \nGestores: \n TM: Laura de Juana, Mercedes Jaime, Leonela Vila, Joaquín Rebichini, Alejandro Giorgio \n TT: Mariana Vera, Yamila Blando, María Ponce, Marianela Cocco. \n Interno: 1001. \n Teléfono: 0810-444-0072. \n Libre deuda: a los 15 días en la sucursal de origen.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function fravega() {
+        swal({
+            title: "Frávega",
+            text: "Supervisor: Rita Viaggio \n Gestores: \n TM: Agustín Giorgio, Cindy Van de Ploeg, Celeste Vega, Gisel Gonzalez, Malen Cesco, Candela Candia, Yamila Minetti, Facundo Borquez \n TT: Tomás Riva. \n Interno: 1010. \n Teléfono: 011-52773799. \n Libre deuda: Lo solicita el titular a los 30 días desde la fecha de cancelación, enviando un WhatsApp al 1122610232, indicando su DNI.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function cfn() {
+        swal({
+            title: "Crédito Argentino",
+            text: "Supervisor: Juan Silverio \n Gestores: \n TM: Daniela Marozzi, Fausto Graneros, Micaela Gil \n TT: Javier Macri, Elias Zeballos, Germán Pinazo, Santiago Lopez, Giuliana Guagliano, Nicolás Martínez. \n Interno: 1007. \n Teléfono: 0810-666-0090. \n Libre deuda: en sucursal, al momento de la cancelación o a los 15 días en caso de haber cancelado mediante transferencia.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function credicoop() {
+        swal({
+            title: "Banco Credicoop",
+            text: "Supervisor: Lourde Greco \n Gestores: \n TM: Magalí Fidalgo, Maria Jankovic, Stefanía Feres, Carolina Krepelka, Guillermina Reynoso, Alejandro Vallarella (BO). CAMPAÑA: Guillermina Reynoso, Gisel Gonzalez , Dana Trobbiani \n TT: Rocío Sirvan, Romina Giordano, Malvina Galloso. \n Interno: 1014. \n Teléfono: 0810-888-4500. \n Libre deuda: en Filial - Común y Campaña especial, a los 40 días hábiles desde la cancelación.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function hsbc() {
+        swal({
+            title: "HSBC",
+            text: "Supervisor: Silvia Guadagnoli \n Gestores: (solo TM) Fabiana Rojas, Ayelen Lattari, Jaquelina Martínez, Cristhian Ruiz, Alexia Rovere, Luisina Pullaro. \n Interno: 1011. \n Libre deuda: a los 30 días de la cancelación. Se agenda a Back Office o supervior y se envía por email.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function tla() {
+        swal({
+            title: "Tarjeta La Anónima",
+            text: "Supervisor: Natalia Roldán \n Gestores: Rocio Pereyra, Alfonso Moschen, Ayelen Pizzi, Mayra Fabani, Yamila Tome, Romina Figueredo (BO), Eugenia Zorzi. \n Interno: 1006. \n Libre deuda: se solicita a los 20 días de haber efectuado el pago total de la deuda o la última cuota, en el caso que tenga un plan de pagos. Tiene que llamar a LA ANÓNIMA al 0800-777-0222 de lunes a viernes de 9 a 21 hs para que se lo envíen por mail o puede solicitarse a través del Whatsapp al 11 32921100.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function hipotecario() {
+        swal({
+            title: "Banco Hipotecario",
+            text: "Supervisor: Silvia Guadagnoli \n Gestores: (solo TM) Angeles Martinich, Denise Spero, Ana Clara Bruno, Lia Tonzar, Naibi Gattari. \n Interno: 1025. \n Libre deuda: lo puede solicitar a los 30 días de la cancelación, enviando un mail, con sus datos, a cualquiera de estas 3 direcciones: atencion@hipotecario.com.ar, atencioncliente@hipotecario.com.ar, gestiones@hipotecario.com.ar.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function sol() {
+        swal({
+            title: "Banco Del Sol",
+            text: "Supervisor: Rita Viaggio \n Gestores: Franco Landajuela, Julieta Zarate. \n Interno: --. \n Libre deuda: Se envía al email de los referentes la solicitud del libre deuda, todas juntas una vez a la semana para que realicen los ajustes, una vez autorizados, hay que pasarle al deudor el teléfono para que realicen el pedido. Atención al Cliente: WhatsApp: +54 11 5984 2523 - Correo: asistencia@bancodelsol.com.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function pampa() {
+        swal({
+            title: "Banco De La Pampa",
+            text: "Supervisor: Silvia Guadagnoli \n Gestores: Ramiro Pérez, Victoria Saire, Fabiana Rojas, Verónica Fernández, Romina Figueredo (TT). \n Interno: --. \n Libre deuda: Solicitarlo al supervisor a los  30 días de la cancelación.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function cfa() {
+        swal({
+            title: "Efectivo Si",
+            text: "Supervisor: Natalia Roldán \n Gestores: Lucía Ressiga, Lucía Ferrarini, Gonzalo Azara, Alejandro Vallarella, Marina Gomez, Stefania Feres, Rodolfo Jesús Murúa, Facundo Policani, Laura Alessandroni, Malen Cesco, Celine Cucchiara, Angeles Martinich, Daniel Rossi, Romina Giordano,  Malvina Galloso, Leonela Vila, Matias Marsilli. \n Interno: --. \n Libre deuda: Lo solicita en sucursal a los 30 días hábiles de la cancelación.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function comafi() {
+        swal({
+            title: "Banco Comafi",
+            text: "Supervisor: Rita Viaggio \n Gestores: Uriel Ortiz, Victoria Ruiz, Rocío Sirvan. \n Interno: --. \n Libre deuda:  : En Estudio – A los 30 díasluego de cancelada la deuda. * Una vez que el titular cancele agendar la cuenta a la líder del cliente para que pueda generar el LD.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function corefin() {
+        swal({
+            title: "Corefín",
+            text: "Supervisor: Rita Viaggio \n Gestores: Guadalupe Molina, Leonela Vila, Ángeles Martinich, Romina Figueredo, Eugenia Zorzi. \n Interno: --. \n Libre deuda: Solicitarlo al supervisor a las 72 hs de la cancelación.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function musimundo() {
+        swal({
+            title: "Musimundo",
+            text: "Supervisor: Juan Silverio \n  Gestores: Dana Trobbiani, Francisco Rivadera, Julieta Villaescusa, Catalina Miloslavich, Malen Cesco, Magali Zatta, Daniela Marozzi, Silvina Ocampo, Agustín Giorgio, Emanuel Gonzalez, Maria Pia Rivera. \n Interno: --. \n Libre deuda: En sucursal - Solicitarlo a los 15 días hábiles desde la fecha de cancelación.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function naranja() {
+        swal({
+            title: "Tarjeta Naranja",
+            text: "Supervisor: Natalia Roldán \n Gestores: Verónica Fernández, María Jankovic, Marianela Cocco, Alejandro Vallarella (BO), Carolina Krepelka, Cristhian Ruiz, Malvina Galloso, Daniela Marozzi, Denise Spero, Micaela Gil. \n Interno: --. \n Libre deuda: En sucursal - Solicitarlo a los 15 días de la fecha de cancelación.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function municipal() {
+        swal({
+            title: "Banco Municipal",
+            text: "Supervisor: Lourdes Greco \n Gestores: Facundo Policani, Alejandro Vallarela. \n Interno: --. \n Libre deuda: 30 días hábiles desde la cancelación y se agenda a supervisor.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function sanJuan() {
+        swal({
+            title: "Banco San Juan",
+            text: "Supervisor: Lourdes Greco \n Gestores: María Ponce, Mariana Rivera, Laura De Juana, Mercedes Jaime, Alejandro Giorgio, Yamila Blando, Verónica Fernández, Yamila Minetti . \n Interno: --. \n Teléfono: 0800 888 5465 \n Libre deuda: En sucursal - Solicitarlo a los 7 días hábiles desde la fecha de cancelación.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+
+    function judicial() {
+        swal({
+            title: "Judicial - Cencosud",
+            text: "Sebastian Picerni y Rita Viaggio (TM) . \n Interno: 130. \n Libre deuda: Agendar a gestor para que el mismo le informe los plazos.",
+            icon: "info",
+            button: "Ok",
+        });
+    }
+</script>
+
+
+<script>
+    function copyToClickBoard(texto) {
+        var content = texto;
+
+        navigator.clipboard.writeText(content)
+            .then(() => {
+                console.log("Text copied to clipboard...")
+            })
+            .catch(err => {
+                console.log('Something went wrong', err);
+            })
+
+    }
+
+
+    function handlePaste(e) {
+        var clipboardData, pastedData;
+
+        // Stop data actually being pasted into div
+        e.stopPropagation();
+        e.preventDefault();
+
+        // Get pasted data via clipboard API
+        clipboardData = e.clipboardData || window.clipboardData;
+        n = clipboardData.getData('Text');
+        n1 = n.trim();
+
+        n2 = n.replace('+54', '');
+
+
+        n3 = n2.replace('9', '');
+
+
+        n4 = n3.replace('549', '');
+        n5 = n4.replace(/\s+/g, '');
+        n6 = n5.replace('-', '');
+
+        copyToClickBoard(n6)
+    }
+
+    document.getElementById('editableDiv').addEventListener('paste', handlePaste);
+
+    function copiar() {
+        // Crea un campo de texto "oculto"
+        var aux = document.createElement("input");
+
+        // Asigna el contenido del elemento especificado al valor del campo
+        aux.setAttribute("value", document.getElementById("memo").innerHTML);
+
+        // Añade el campo a la página
+        document.body.appendChild(aux);
+
+        // Selecciona el contenido del campo
+        aux.select();
+
+        // Copia el texto seleccionado
+        document.execCommand("copy");
+
+        // Elimina el campo de la página
+        document.body.removeChild(aux);
+
+        console.log("texto copiado")
+    }
+
+    function rp() {
+        n = new Date();
+        //Año
+        y = n.getFullYear();
+        //Mes
+        m = n.getMonth() + 1;
+        //Día
+        d = n.getDate();
+
+        swal("Ingrese el importe del comprobante:", {
+            content: "input",
+        })
+            .then((value) => {
+                let texto = `Se recibe comprobante de Rapipago / Pago Fácil. Por un importe de $${value}. Con fecha: ${d}/${m}/${y}.`;
+                swal(`Memo: "Se recibe comprobante de Rapipago / Pago Fácil. Por un importe de $${value}. Con fecha: ${d}/${m}/${y}." Copiado!`);
+                button: "Aww yiss!",
+                    copyToClickBoard(texto);
+            });
+    }
+
+    function transferencia() {
+        n = new Date();
+        //Año
+        y = n.getFullYear();
+        //Mes
+        m = n.getMonth() + 1;
+        //Día
+        d = n.getDate();
+
+        swal("Ingrese el importe del comprobante:", {
+            content: "input",
+        })
+            .then((value) => {
+                let texto2 = `Se recibe comprobante de transferencia / depósito. Por un importe de $${value}. Con fecha: ${d}/${m}/${y}.`;
+                swal(`Memo: "Se recibe comprobante de transferencia / depósito. Por un importe de $${value}. Con fecha: ${d}/${m}/${y}." Copiado!`);
+                button: "Aww yiss!",
+                    copyToClickBoard(texto2);
+            });
+    }
+
+    function sucursal() {
+        n = new Date();
+        //Año
+        y = n.getFullYear();
+        //Mes
+        m = n.getMonth() + 1;
+        //Día
+        d = n.getDate();
+
+        swal("Ingrese el importe del comprobante:", {
+            content: "input",
+        })
+            .then((value) => {
+                let texto2 = `Se recibe comprobante de pago en sucursal. Por un importe de $${value}. Con fecha: ${d}/${m}/${y}.`;
+                swal(`Memo: "Se recibe comprobante de pago en sucursal. Por un importe de $${value}. Con fecha: ${d}/${m}/${y}." Copiado!`);
+                button: "Aww yiss!",
+                    copyToClickBoard(texto2);
+            });
+    }
+
+    function mp() {
+        n = new Date();
+        //Año
+        y = n.getFullYear();
+        //Mes
+        m = n.getMonth() + 1;
+        //Día
+        d = n.getDate();
+
+        swal("Ingrese el importe del comprobante:", {
+            content: "input",
+        })
+            .then((value) => {
+                let texto2 = `Se recibe comprobante de Mercado Pago. Por un importe de $${value}. Con fecha: ${d}/${m}/${y}.`;
+                swal(`Memo: "Se recibe comprobante de Mercado Pago. Por un importe de $${value}. Con fecha: ${d}/${m}/${y}." Copiado!`);
+                button: "Aww yiss!",
+                    copyToClickBoard(texto2);
+            });
+    }
+
+</script>
+
+</html>
