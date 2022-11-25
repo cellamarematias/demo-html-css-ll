@@ -2,9 +2,9 @@
 	// create and show the notification
 	const showNotification = () => {
 			// create a new notification
-			const notification = new Notification('JavaScript Notification API', {
-					body: 'This is a JavaScript Notification API demo',
-					icon: './img/js.png'
+			const notification = new Notification('', {
+					body: '',
+					icon: 'wsp.png'
 			});
 
 			let audio = new Audio('audio.mp3');
