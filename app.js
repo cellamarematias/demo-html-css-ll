@@ -12,6 +12,10 @@
 					notification.close();
 			}, 10 * 1000);
 
+			setTimeout(() => {
+				location.reload();
+		}, 20 * 1000);
+
 			// navigate to a URL when clicked
 			notification.addEventListener('click', () => {
 
@@ -37,6 +41,10 @@
 	}
 
 	// show notification or error
-	granted ? showNotification() : showError();
+	granted ? setTimeout(() => {
+		showNotification();
+}, 60000) : showError();
+
+	
 
 })();
