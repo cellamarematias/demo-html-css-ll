@@ -7,6 +7,8 @@
 					icon: './img/js.png'
 			});
 
+			let audio = new Audio('audio.mp3');
+			audio.play();
 			// close the notification after 10 seconds
 			setTimeout(() => {
 					notification.close();
@@ -18,8 +20,7 @@
 
 			// navigate to a URL when clicked
 			notification.addEventListener('click', () => {
-
-					window.open('https://www.javascripttutorial.net/web-apis/javascript-notification/', '_blank');
+				location.reload();
 			});
 	}
 
@@ -43,8 +44,8 @@
 	// show notification or error
 	granted ? setTimeout(() => {
 		showNotification();
-}, 60000) : showError();
+}, 420000) : showError();
 
-	
+
 
 })();
